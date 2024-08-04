@@ -1,7 +1,15 @@
 #+TITLE: rhyme.py
 #+SUBTITLE: Get a list of words that rhyme in English, a CLI utility
 
+* Installation
+#+begin_src sh
+git clone https://github.com/tigger04/rhyme-cli.git rhyme-cli
+cd rhyme-cli
+python3 -m virtualenv .
+python3 -m pip install -r requirements.txt
+#+end_src
+
 * Usage
 #+begin_src sh
-rhyme.py [word]
+rhyme [word]
 #+end_src
