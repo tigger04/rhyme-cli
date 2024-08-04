@@ -5,8 +5,11 @@
 
 set -e
 
+real_source="$(realpath "${BASH_SOURCE[0]}")"
+cd "$(dirname "$real_source")"
+
 # cd ~/code/tigoss/rhyme-cli
-. ./bin/activate
+source ./bin/activate
 
 python3 rhyme.py "$@"
  
