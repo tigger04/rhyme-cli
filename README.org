@@ -1,0 +1,7 @@
+#+TITLE: rhyme.py
+#+SUBTITLE: Get a list of words that rhyme in English, a CLI utility
+
+* Usage
+#+begin_src sh
+rhyme.py [word]
+#+end_src
