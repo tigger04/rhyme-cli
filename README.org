@@ -1,7 +1,9 @@
 #+TITLE: rhyme.py
 #+SUBTITLE: Get a list of words that rhyme in English, a CLI utility
 
-* Installation
+There's a bash script here that uses the Datamuse API, and a Python script using the CMU Pronouncing Dictionary. The Python script has fairly mixed results.
+
+* Python script Installation
 #+begin_src sh
 git clone https://github.com/tigger04/rhyme-cli.git rhyme-cli
 cd rhyme-cli
@@ -9,7 +11,17 @@ python3 -m virtualenv .
 python3 -m pip install -r requirements.txt
 #+end_src
 
+* Bash script requirements
+- jq
+- curl
+
 * Usage
 #+begin_src sh
+
 rhyme [word]
+
+# or
+
+rhyme.py [word]
+
 #+end_src

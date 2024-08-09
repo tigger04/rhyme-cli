@@ -1,15 +1,25 @@
 #!/usr/bin/env bash
 
- # The  rhyme  script is a simple wrapper around the  rhyme.py  script. It activates the virtual environment and runs the script with the arguments passed to it. 
- # The  rhyme.py  script is the main script that does the work. It uses the  requests  library to make a request to the  Datamuse API and prints the results. 
+# Bash script, displays rhyming words for a given word
+# using the Datamuse API
+# requirements: jq, curl
 
-set -e
+# Check if a word is provided
+if [ -z "$1" ]; then
+  echo "Usage: rhyme <word>"
+  exit 1
+fi
 
-real_source="$(realpath "${BASH_SOURCE[0]}")"
-cd "$(dirname "$real_source")"
+word=$1
 
-# cd ~/code/tigoss/rhyme-cli
-source ./bin/activate
+# Get rhymes from Datamuse API
+url="https://api.datamuse.com/words?rel_rhy=$word"
+results="$(curl -s "$url")"
 
-python3 rhyme.py "$@"
- 
+# Parse JSON and extract words
+shortlist=$(echo "$results" | jq -r '.[].word' | head -n 1000)
+
+# Print each word on a new line
+for word_item in $shortlist; do
+  echo "$word_item"
+done

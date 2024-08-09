@@ -1,3 +1,7 @@
+# Description: This Python script takes a word as input and returns a list of words that rhyme with the input word.
+# Using the CMU Pronouncing Dictionary, the script finds words that have the same pronunciation as the input word.
+# results are fairly mixed.
+
 import nltk
 from nltk.corpus import cmudict
 import sys
